@@ -1,0 +1,91 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Archetype Created Web Application</display-name>
+
+    <servlet>
+        <servlet-name>getWidgetList</servlet-name>
+        <servlet-class>servlet.getWidgetList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>WeatherServlet</servlet-name>
+        <servlet-class>servlet.WeatherServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TwitterTrendServlet</servlet-name>
+        <servlet-class>servlet.TwitterTrendServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>YoutubeServlet</servlet-name>
+        <servlet-class>servlet.YoutubeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SampleServlet</servlet-name>
+        <servlet-class>servlet.SampleServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TwitterUserServlet</servlet-name>
+        <servlet-class>servlet.TwitterUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TwitterSearchServlet</servlet-name>
+        <servlet-class>servlet.TwitterSearchServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>signInWithTwitter</servlet-name>
+        <servlet-class>servlet.signInWithTwitter</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TwitterSignedInUser</servlet-name>
+        <servlet-class>servlet.TwitterSignedInUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TwitterHomeTimeline</servlet-name>
+        <servlet-class>servlet.TwitterHomeTimeline</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>getWidgetList</servlet-name>
+        <url-pattern>/getWidgetList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WeatherServlet</servlet-name>
+        <url-pattern>/WeatherServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TwitterTrendServlet</servlet-name>
+        <url-pattern>/TwitterTrendServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>YoutubeServlet</servlet-name>
+        <url-pattern>/YoutubeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SampleServlet</servlet-name>
+        <url-pattern>/SampleServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TwitterUserServlet</servlet-name>
+        <url-pattern>/TwitterUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TwitterSearchServlet</servlet-name>
+        <url-pattern>/TwitterSearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>signInWithTwitter</servlet-name>
+        <url-pattern>/signInWithTwitter</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TwitterSignedInUser</servlet-name>
+        <url-pattern>/TwitterSignedInUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TwitterHomeTimeline</servlet-name>
+        <url-pattern>/TwitterHomeTimeline</url-pattern>
+    </servlet-mapping>
+
+</web-app>
