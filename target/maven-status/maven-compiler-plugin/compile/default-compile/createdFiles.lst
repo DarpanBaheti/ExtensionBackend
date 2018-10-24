@@ -1,3 +1,4 @@
+servlet/checkTwitterSignInStatus.class
 servlet/YoutubeServlet.class
 beans/SampleWidget.class
 servlet/TwitterHomeTimeline.class
@@ -5,6 +6,7 @@ servlet/TwitterSignedInUser.class
 Tests/Test.class
 utils/ParameterStringBuilder.class
 beans/TwitterWidget.class
+beans/UserProfile.class
 servlet/TwitterTrendServlet.class
 utils/HttpURLConnectionExample.class
 beans/YoutubeWidget.class

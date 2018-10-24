@@ -1,6 +1,7 @@
 package Tests;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -215,59 +216,110 @@ import twitter4j.conf.ConfigurationBuilder;
 //    }
 //}
 
+//public class TestTwitter {
+//    public static void main(String[] args) throws IOException, TwitterException {
+//        String queryString = "#TheBlindList";
+//
+//        ConfigurationBuilder cb = new ConfigurationBuilder();
+//        cb.setDebugEnabled(true)
+//                .setOAuthConsumerKey("KfEet8Ecgq6BqDFi0rwvyT4mv")
+//                .setOAuthConsumerSecret("e4MtE5Y15RJTPwTahYtpugfcQTKW9kMIbn0RY5ZNrMXMEnVOka")
+//                .setOAuthAccessToken("778340928121544704-58E0tCkp92pQh1wHsaoIUyTYqnRC05j")
+//                .setOAuthAccessTokenSecret("os1pQ0PbnxWx9UAh8xRcJ6SuDrCvaFLWucXfu0xhsOhtt");
+//        TwitterFactory tf = new TwitterFactory(cb.build());
+//        Twitter twitter = tf.getInstance();
+//
+//        List searchData = new ArrayList<>();
+//        try {
+//            Query query = new Query(queryString + " +exclude:retweets");
+//            query.setResultType(Query.MIXED);
+////            query.setGeoCode(new GeoLocation(18.975,72.8258),1000.0,"mi");
+//            int numberOfTweets = 10;
+//            query.setCount(numberOfTweets);
+//            QueryResult result = twitter.search(query);
+//            List<Status> statuses = result.getTweets();
+//
+//            int count = 1;
+//            for (Status status : statuses) {
+//                if(count>5) break;
+//                count += 1;
+//
+//                Map postDetails = new HashMap();
+//                String userName,id,text,profileImage;
+//                userName = status.getUser().getScreenName();
+//                id = String.valueOf(status.getId());
+//                text = status.getText();
+//                profileImage = status.getUser().getProfileImageURLHttps();
+//                if(status.isRetweet() == true)
+//                {
+//                    userName = status.getRetweetedStatus().getUser().getScreenName();
+//                    id = String.valueOf(status.getRetweetedStatus().getId());
+//                    text = "[RT @" + userName + " ] " + status.getRetweetedStatus().getText();
+//                    profileImage = status.getRetweetedStatus().getUser().getProfileImageURLHttps();
+//                }
+//                postDetails.put("userName",userName);
+//                postDetails.put("id",id);
+//                postDetails.put("text",text);
+//                postDetails.put("profileImage",profileImage);
+//                searchData.add(postDetails);
+//            }
+//        } catch (TwitterException te) {
+//            te.printStackTrace();
+//            System.out.println("Failed to search tweets: " + te.getMessage());
+//        }
+//
+//        String trendJsonString = new Gson().toJson(searchData);
+//        System.out.println(trendJsonString);
+//    }
+//}
+
 public class TestTwitter {
     public static void main(String[] args) throws IOException, TwitterException {
-        String queryString = "#TheBlindList";
+        String accessToken = "837345623670153219-vJcmjzQJTQpEewZC57GmXcqc0yOP3PN";
+        String accessTokenVerifier = "YttdpITpDKQL0SrWXnFkR7orYp6yFDPtJgkaKOMHsIyLn";
 
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
                 .setOAuthConsumerKey("KfEet8Ecgq6BqDFi0rwvyT4mv")
                 .setOAuthConsumerSecret("e4MtE5Y15RJTPwTahYtpugfcQTKW9kMIbn0RY5ZNrMXMEnVOka")
-                .setOAuthAccessToken("778340928121544704-58E0tCkp92pQh1wHsaoIUyTYqnRC05j")
-                .setOAuthAccessTokenSecret("os1pQ0PbnxWx9UAh8xRcJ6SuDrCvaFLWucXfu0xhsOhtt");
+                .setOAuthAccessToken(accessToken)
+                .setOAuthAccessTokenSecret(accessTokenVerifier);
         TwitterFactory tf = new TwitterFactory(cb.build());
         Twitter twitter = tf.getInstance();
 
-        List searchData = new ArrayList<>();
+        List userData = new ArrayList<>();
         try {
-            Query query = new Query(queryString + " +exclude:retweets");
-            query.setResultType(Query.MIXED);
-//            query.setGeoCode(new GeoLocation(18.975,72.8258),1000.0,"mi");
-            int numberOfTweets = 10;
-            query.setCount(numberOfTweets);
-            QueryResult result = twitter.search(query);
-            List<Status> statuses = result.getTweets();
-
+            List<Status> statuses;
+            statuses = twitter.getHomeTimeline();
             int count = 1;
             for (Status status : statuses) {
-                if(count>5) break;
+                if (count > 5) break;
                 count += 1;
 
                 Map postDetails = new HashMap();
-                String userName,id,text,profileImage;
+                String userName, id, text, profileImage;
                 userName = status.getUser().getScreenName();
                 id = String.valueOf(status.getId());
                 text = status.getText();
                 profileImage = status.getUser().getProfileImageURLHttps();
-                if(status.isRetweet() == true)
-                {
+                if (status.isRetweet() == true) {
                     userName = status.getRetweetedStatus().getUser().getScreenName();
                     id = String.valueOf(status.getRetweetedStatus().getId());
                     text = "[RT @" + userName + " ] " + status.getRetweetedStatus().getText();
                     profileImage = status.getRetweetedStatus().getUser().getProfileImageURLHttps();
                 }
-                postDetails.put("userName",userName);
-                postDetails.put("id",id);
-                postDetails.put("text",text);
-                postDetails.put("profileImage",profileImage);
-                searchData.add(postDetails);
+                postDetails.put("userName", userName);
+                postDetails.put("id", id);
+                postDetails.put("text", text);
+                postDetails.put("profileImage", profileImage);
+                userData.add(postDetails);
             }
         } catch (TwitterException te) {
             te.printStackTrace();
-            System.out.println("Failed to search tweets: " + te.getMessage());
+            System.out.println("Failed to get timeline: " + te.getMessage());
         }
 
-        String trendJsonString = new Gson().toJson(searchData);
-        System.out.println(trendJsonString);
+        String twitterJsonString = new Gson().toJson(userData);
+        System.out.println(twitterJsonString);
     }
 }

@@ -45,6 +45,10 @@
         <servlet-name>TwitterHomeTimeline</servlet-name>
         <servlet-class>servlet.TwitterHomeTimeline</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>checkTwitterSignInStatus</servlet-name>
+        <servlet-class>servlet.checkTwitterSignInStatus</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
@@ -87,5 +91,10 @@
         <servlet-name>TwitterHomeTimeline</servlet-name>
         <url-pattern>/TwitterHomeTimeline</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>checkTwitterSignInStatus</servlet-name>
+        <url-pattern>/checkTwitterSignInStatus</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>

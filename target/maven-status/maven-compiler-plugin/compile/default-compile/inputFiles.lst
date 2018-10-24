@@ -1,3 +1,4 @@
+/Users/darpan.b/IdeaProjects/extension/src/main/java/servlet/checkTwitterSignInStatus.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/beans/TwitterWidget.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/servlet/TwitterSignedInUser.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/servlet/TwitterHomeTimeline.java
@@ -7,6 +8,7 @@
 /Users/darpan.b/IdeaProjects/extension/src/main/java/Tests/TestTwitter.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/servlet/TwitterSearchServlet.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/beans/SampleWidget.java
+/Users/darpan.b/IdeaProjects/extension/src/main/java/beans/UserProfile.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/utils/ParameterStringBuilder.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/beans/Widget.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/servlet/WeatherServlet.java

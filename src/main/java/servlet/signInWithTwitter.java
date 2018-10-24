@@ -17,6 +17,7 @@ public class signInWithTwitter extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setHeader("Access-Control-Allow-Origin", "http://localhost:8000");
 
+        String userId = request.getParameter("userId");
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
                 .setOAuthConsumerKey("KfEet8Ecgq6BqDFi0rwvyT4mv")
@@ -24,16 +25,15 @@ public class signInWithTwitter extends HttpServlet {
         TwitterFactory tf = new TwitterFactory(cb.build());
         Twitter twitter = tf.getInstance();
         request.getSession().setAttribute("twitter", twitter);
-        try {
-//            StringBuffer callbackURL = request.getRequestURL();
-//            int index = callbackURL.lastIndexOf("/");
-//            callbackURL.replace(index, callbackURL.length(), "").append("/callback");
-//            RequestToken requestToken = twitter.getOAuthRequestToken(callbackURL.toString());
+        request.getSession().setAttribute("userId", userId);
 
+        try {
             String callbackURL = "http://localhost:8081/TwitterSignedInUser";
-            RequestToken requestToken = twitter.getOAuthRequestToken(callbackURL);
+            RequestToken requestToken = twitter.getOAuthRequestToken();
+
             request.getSession().setAttribute("requestToken", requestToken);
             response.sendRedirect(requestToken.getAuthenticationURL());
+
         } catch (TwitterException e) {
             throw new ServletException(e);
         }
