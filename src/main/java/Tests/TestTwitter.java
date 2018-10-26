@@ -291,6 +291,10 @@ public class TestTwitter {
         try {
             List<Status> statuses;
             statuses = twitter.getHomeTimeline();
+
+            String jsonString = new Gson().toJson(statuses);
+            System.out.println(jsonString);
+
             int count = 1;
             for (Status status : statuses) {
                 if (count > 5) break;

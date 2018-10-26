@@ -49,6 +49,10 @@
         <servlet-name>checkTwitterSignInStatus</servlet-name>
         <servlet-class>servlet.checkTwitterSignInStatus</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>signOutFromTwitter</servlet-name>
+        <servlet-class>servlet.signOutFromTwitter</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
@@ -94,6 +98,10 @@
     <servlet-mapping>
         <servlet-name>checkTwitterSignInStatus</servlet-name>
         <url-pattern>/checkTwitterSignInStatus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>signOutFromTwitter</servlet-name>
+        <url-pattern>/signOutFromTwitter</url-pattern>
     </servlet-mapping>
 
 

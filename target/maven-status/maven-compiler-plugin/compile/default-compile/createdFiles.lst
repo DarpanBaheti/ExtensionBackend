@@ -10,6 +10,7 @@ beans/UserProfile.class
 servlet/TwitterTrendServlet.class
 utils/HttpURLConnectionExample.class
 beans/YoutubeWidget.class
+servlet/signOutFromTwitter.class
 servlet/getWidgetList.class
 beans/Database.class
 servlet/TwitterUserServlet.class

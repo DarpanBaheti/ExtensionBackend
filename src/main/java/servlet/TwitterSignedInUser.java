@@ -37,11 +37,6 @@ public class TwitterSignedInUser extends HttpServlet {
         } catch (TwitterException e) {
             e.printStackTrace();
         }
-//        PrintWriter out = response.getWriter();
-//        response.setContentType("application/json");
-//        response.setCharacterEncoding("UTF-8");
-//        out.print(outString);
-//        out.flush();
         response.sendRedirect("http://localhost:8000/newtab/authorized.html?twitterSignedInStatus=true");
     }
 
@@ -62,7 +57,6 @@ public class TwitterSignedInUser extends HttpServlet {
             out.writeObject(userProfileMap);
             out.close();
             fileOut.close();
-            System.out.println("Saved Data for user: " + userId);
         } catch (IOException i) {
             i.printStackTrace();
             return;
