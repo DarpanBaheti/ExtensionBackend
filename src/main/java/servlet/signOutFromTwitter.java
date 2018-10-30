@@ -19,7 +19,6 @@ public class signOutFromTwitter extends HttpServlet {
         System.out.println(session.getLastAccessedTime());
 
         request.getSession().invalidate();
-//        response.sendRedirect(request.getContextPath()+ "/");
 //        response.sendRedirect("http://localhost:8000/newtab/index.html");
     }
 }

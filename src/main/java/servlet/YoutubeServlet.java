@@ -42,9 +42,6 @@ public class YoutubeServlet extends HttpServlet {
         if(paramString != null)
             apiUrl = apiUrl + "?" + paramString;
 
-//        System.out.println("apiUrl " + apiUrl);
-
-
         YoutubeWidget youtubeWidget = new YoutubeWidget();
 
         HttpURLConnectionExample http = new HttpURLConnectionExample();

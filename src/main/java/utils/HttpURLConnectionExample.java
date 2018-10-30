@@ -9,33 +9,6 @@ import java.util.Map;
 public class HttpURLConnectionExample {
     private final String USER_AGENT = "Chrome";
 
-    // HTTP GET request
-    public String sendGet(String url, Map<String,String> parameters) throws Exception {
-        url = url + "?" + ParameterStringBuilder.getParamsString(parameters);
-
-        URL obj = new URL(url);
-        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-        con.setRequestMethod("GET");
-        con.setRequestProperty("User-Agent", USER_AGENT);
-        con.setRequestProperty("Content-Type", "application/json");
-
-        int responseCode = con.getResponseCode();
-        //System.out.println("Response Code : " + responseCode);
-
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        StringBuffer response = new StringBuffer();
-
-        while ((inputLine = in.readLine()) != null) {
-            response.append(inputLine);
-        }
-        in.close();
-        con.disconnect();
-
-        return response.toString();
-    }
-
     public String sendGet(String url) throws Exception {
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();

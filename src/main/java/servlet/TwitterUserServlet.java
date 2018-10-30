@@ -1,13 +1,10 @@
 package servlet;
 
-import beans.TwitterWidget;
 import com.google.gson.Gson;
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
-import utils.HttpURLConnectionExample;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

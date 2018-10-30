@@ -1,23 +1,15 @@
 package servlet;
 
-import beans.TwitterWidget;
 import beans.UserProfile;
-import com.google.gson.Gson;
 import twitter4j.*;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
-import twitter4j.conf.ConfigurationBuilder;
-import utils.HttpURLConnectionExample;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class TwitterSignedInUser extends HttpServlet {

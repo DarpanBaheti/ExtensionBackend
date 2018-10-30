@@ -10,20 +10,12 @@
         <servlet-class>servlet.getWidgetList</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>WeatherServlet</servlet-name>
-        <servlet-class>servlet.WeatherServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>TwitterTrendServlet</servlet-name>
         <servlet-class>servlet.TwitterTrendServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>YoutubeServlet</servlet-name>
         <servlet-class>servlet.YoutubeServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SampleServlet</servlet-name>
-        <servlet-class>servlet.SampleServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>TwitterUserServlet</servlet-name>
@@ -60,20 +52,12 @@
         <url-pattern>/getWidgetList</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>WeatherServlet</servlet-name>
-        <url-pattern>/WeatherServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>TwitterTrendServlet</servlet-name>
         <url-pattern>/TwitterTrendServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>YoutubeServlet</servlet-name>
         <url-pattern>/YoutubeServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SampleServlet</servlet-name>
-        <url-pattern>/SampleServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TwitterUserServlet</servlet-name>
