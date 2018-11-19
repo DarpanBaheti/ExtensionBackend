@@ -2,6 +2,7 @@ package servlet;
 
 import beans.UserProfile;
 import com.google.gson.Gson;
+import constants.ConstantsWidgets;
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
 
@@ -20,19 +21,20 @@ import java.util.Map;
 
 public class TwitterHomeTimeline extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setHeader("Access-Control-Allow-Origin", "http://localhost:8000");
+        response.setHeader("Access-Control-Allow-Origin", "*");
 
         String userId = request.getParameter("userId");
         UserProfile userProfile = getUserProfileDetails(userId);
 
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-                .setOAuthConsumerKey("KfEet8Ecgq6BqDFi0rwvyT4mv")
-                .setOAuthConsumerSecret("e4MtE5Y15RJTPwTahYtpugfcQTKW9kMIbn0RY5ZNrMXMEnVOka")
+                .setOAuthConsumerKey(ConstantsWidgets.TwitterConsumerKey)
+                .setOAuthConsumerSecret(ConstantsWidgets.TwitterConsumerSecret)
                 .setOAuthAccessToken(userProfile.twitterAccessToken)
                 .setOAuthAccessTokenSecret(userProfile.twitterAccessTokenSecret);
         TwitterFactory tf = new TwitterFactory(cb.build());
         Twitter twitter = tf.getInstance();
+
         List userData = new ArrayList<>();
         try {
             List<Status> statuses;
@@ -43,6 +45,7 @@ public class TwitterHomeTimeline extends HttpServlet {
                 count += 1;
 
                 Map postDetails = new HashMap();
+
                 String userName = status.getUser().getScreenName();
                 String id = String.valueOf(status.getId());
                 String text = status.getText();
@@ -54,6 +57,7 @@ public class TwitterHomeTimeline extends HttpServlet {
                     text = "[RT @" + userName + " ] " + status.getRetweetedStatus().getText();
                     profileImage = status.getRetweetedStatus().getUser().getProfileImageURLHttps();
                 }
+
                 postDetails.put("userName",userName);
                 postDetails.put("id",id);
                 postDetails.put("text",text);
@@ -77,7 +81,7 @@ public class TwitterHomeTimeline extends HttpServlet {
         UserProfile userProfile = null;
         Map<String, UserProfile> userProfileMap = null;
         try {
-            FileInputStream fileIn = new FileInputStream("./userData/userProfile.ser");
+            FileInputStream fileIn = new FileInputStream(ConstantsWidgets.UserDataPath);
             ObjectInputStream in = new ObjectInputStream(fileIn);
             userProfileMap = (Map<String, UserProfile>) in.readObject();
             in.close();

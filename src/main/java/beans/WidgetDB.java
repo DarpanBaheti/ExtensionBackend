@@ -3,10 +3,10 @@ package beans;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Database {
+public class WidgetDB {
     private List<String> widgetArrayList = new ArrayList<>();
 
-    public Database(){
+    public WidgetDB(){
         widgetArrayList.add("Reddit");
         widgetArrayList.add("Twitter");
         widgetArrayList.add("Youtube");

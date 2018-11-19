@@ -1,5 +1,6 @@
 package servlet;
 
+import constants.ConstantsWidgets;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
@@ -15,28 +16,27 @@ import java.io.IOException;
 public class signInWithTwitter extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setHeader("Access-Control-Allow-Origin", "http://localhost:8000");
+        response.setHeader("Access-Control-Allow-Origin", "*");
 
         String userId = request.getParameter("userId");
+
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-                .setOAuthConsumerKey("KfEet8Ecgq6BqDFi0rwvyT4mv")
-                .setOAuthConsumerSecret("e4MtE5Y15RJTPwTahYtpugfcQTKW9kMIbn0RY5ZNrMXMEnVOka");
+                .setOAuthConsumerKey(ConstantsWidgets.TwitterConsumerKey)
+                .setOAuthConsumerSecret(ConstantsWidgets.TwitterConsumerSecret);
         TwitterFactory tf = new TwitterFactory(cb.build());
         Twitter twitter = tf.getInstance();
+
         request.getSession().setAttribute("twitter", twitter);
         request.getSession().setAttribute("userId", userId);
 
         try {
-            String callbackURL = "http://localhost:8081/TwitterSignedInUser";
             RequestToken requestToken = twitter.getOAuthRequestToken();
-
             request.getSession().setAttribute("requestToken", requestToken);
             response.sendRedirect(requestToken.getAuthenticationURL());
 
         } catch (TwitterException e) {
             throw new ServletException(e);
         }
-
     }
 }

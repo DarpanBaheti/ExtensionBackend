@@ -1,8 +1,8 @@
 /Users/darpan.b/IdeaProjects/extension/src/main/java/servlet/checkTwitterSignInStatus.java
+/Users/darpan.b/IdeaProjects/extension/src/main/java/constants/ConstantsWidgets.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/servlet/TwitterSignedInUser.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/servlet/TwitterHomeTimeline.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/servlet/signInWithTwitter.java
-/Users/darpan.b/IdeaProjects/extension/src/main/java/beans/Database.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/servlet/getWidgetList.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/servlet/TwitterSearchServlet.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/beans/UserProfile.java
@@ -10,6 +10,7 @@
 /Users/darpan.b/IdeaProjects/extension/src/main/java/utils/ParameterStringBuilder.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/servlet/YoutubeServlet.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/utils/HttpURLConnectionExample.java
+/Users/darpan.b/IdeaProjects/extension/src/main/java/beans/WidgetDB.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/servlet/TwitterUserServlet.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/beans/YoutubeWidget.java
 /Users/darpan.b/IdeaProjects/extension/src/main/java/servlet/TwitterTrendServlet.java

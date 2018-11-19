@@ -3,13 +3,14 @@ servlet/YoutubeServlet.class
 servlet/TwitterHomeTimeline.class
 servlet/TwitterSignedInUser.class
 utils/ParameterStringBuilder.class
+beans/WidgetDB.class
 beans/UserProfile.class
 servlet/TwitterTrendServlet.class
+constants/ConstantsWidgets.class
 utils/HttpURLConnectionExample.class
 beans/YoutubeWidget.class
 servlet/signOutFromTwitter.class
 servlet/getWidgetList.class
-beans/Database.class
 servlet/TwitterUserServlet.class
 servlet/TwitterSearchServlet.class
 servlet/signInWithTwitter.class

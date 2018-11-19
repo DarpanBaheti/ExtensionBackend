@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class signOutFromTwitter extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setHeader("Access-Control-Allow-Origin", "http://localhost:8000");
+        response.setHeader("Access-Control-Allow-Origin", "*");
         HttpSession session=request.getSession();
 
         System.out.println(session);

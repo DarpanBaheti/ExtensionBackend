@@ -1,6 +1,7 @@
 package servlet;
 
 import com.google.gson.Gson;
+import constants.ConstantsWidgets;
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
 
@@ -18,19 +19,16 @@ import java.util.Map;
 //@WebServlet(name = "TwitterUserServlet", urlPatterns = "/TwitterUserServlet")
 public class TwitterUserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setHeader("Access-Control-Allow-Origin", "http://localhost:8000");
-
-//        String lat = request.getParameter("latitude");
-//        String lon = request.getParameter("longitude");
+        response.setHeader("Access-Control-Allow-Origin", "*");
 
         String user = request.getParameter("user");
 
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true)
-                .setOAuthConsumerKey("KfEet8Ecgq6BqDFi0rwvyT4mv")
-                .setOAuthConsumerSecret("e4MtE5Y15RJTPwTahYtpugfcQTKW9kMIbn0RY5ZNrMXMEnVOka")
-                .setOAuthAccessToken("778340928121544704-58E0tCkp92pQh1wHsaoIUyTYqnRC05j")
-                .setOAuthAccessTokenSecret("os1pQ0PbnxWx9UAh8xRcJ6SuDrCvaFLWucXfu0xhsOhtt");
+                .setOAuthConsumerKey(ConstantsWidgets.TwitterConsumerKey)
+                .setOAuthConsumerSecret(ConstantsWidgets.TwitterConsumerSecret)
+                .setOAuthAccessToken(ConstantsWidgets.TwitterAccessToken)
+                .setOAuthAccessTokenSecret(ConstantsWidgets.TwitterAccessTokenSecret);
         TwitterFactory tf = new TwitterFactory(cb.build());
         Twitter twitter = tf.getInstance();
 
@@ -42,14 +40,13 @@ public class TwitterUserServlet extends HttpServlet {
             for (Status status : statuses) {
                 if(count>5) break;
                 count += 1;
-//              userData.add(status);
 
                 Map postDetails = new HashMap();
-                String userName,id,text,profileImage;
-                userName = status.getUser().getScreenName();
-                id = String.valueOf(status.getId());
-                text = status.getText();
-                profileImage = status.getUser().getProfileImageURLHttps();
+
+                String userName = status.getUser().getScreenName();
+                String id = String.valueOf(status.getId());
+                String text = status.getText();
+                String profileImage = status.getUser().getProfileImageURLHttps();
                 if(status.isRetweet() == true)
                 {
                     userName = status.getRetweetedStatus().getUser().getScreenName();
@@ -57,6 +54,7 @@ public class TwitterUserServlet extends HttpServlet {
                     text = "[RT @" + userName + " ] " + status.getRetweetedStatus().getText();
                     profileImage = status.getRetweetedStatus().getUser().getProfileImageURLHttps();
                 }
+
                 postDetails.put("userName",userName);
                 postDetails.put("id",id);
                 postDetails.put("text",text);
